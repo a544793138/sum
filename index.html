@@ -4,16 +4,151 @@
 	<title></title>
 </head>
 <body>
-	<label>妈妈年总金额： </label><input type="text" id="mama"><br>
-	<label>爸爸年总金额： </label><input type="text" id="baba"><br>
-	<label>孩子年总金额： </label><input type="text" id="kid"><br>
-	<button id="sumBtn">OK</button>
+	<label>爸爸： </label><br>
+	<input type="radio" name="babaSumType" value="month" class="babaRadio">按月录入<br>
+	<input type="radio" name="babaSumType" value="year" class="babaRadio" checked="checked">按年总收入录入<br>
+	<div id="babaYearDiv">
+		年总收入<input type="text" id="babaYear"><br>
+	</div>
+	<div id="babaMonthDiv">
+		1月收入<input type="text" id="babaMonth1" class="babaMonth"><br>
+		2月收入<input type="text" id="babaMonth2" class="babaMonth"><br>
+		3月收入<input type="text" id="babaMonth3" class="babaMonth"><br>
+		4月收入<input type="text" id="babaMonth4" class="babaMonth"><br>
+		5月收入<input type="text" id="babaMonth5" class="babaMonth"><br>
+		6月收入<input type="text" id="babaMonth6" class="babaMonth"><br>
+		7月收入<input type="text" id="babaMonth7" class="babaMonth"><br>
+		8月收入<input type="text" id="babaMonth8" class="babaMonth"><br>
+		9月收入<input type="text" id="babaMonth9" class="babaMonth"><br>
+		10月收入<input type="text" id="babaMonth10" class="babaMonth"><br>
+		11月收入<input type="text" id="babaMonth11" class="babaMonth"><br>
+		12月收入<input type="text" id="babaMonth12" class="babaMonth"><br>
+	</div>
+	<hr>
+
+	<label>妈妈： </label><br>
+	<input type="radio" name="mamaSumType" value="month" class="mamaRadio">按月录入<br>
+	<input type="radio" name="mamaSumType" value="year" class="mamaRadio" checked="checked">按年总收入录入<br>
+	<div id="mamaYearDiv">
+		年总收入<input type="text" id="mamaYear"><br>
+	</div>
+	<div id="mamaMonthDiv">
+		1月收入<input type="text" id="mamaMonth1" class="mamaMonth"><br>
+		2月收入<input type="text" id="mamaMonth2" class="mamaMonth"><br>
+		3月收入<input type="text" id="mamaMonth3" class="mamaMonth"><br>
+		4月收入<input type="text" id="mamaMonth4" class="mamaMonth"><br>
+		5月收入<input type="text" id="mamaMonth5" class="mamaMonth"><br>
+		6月收入<input type="text" id="mamaMonth6" class="mamaMonth"><br>
+		7月收入<input type="text" id="mamaMonth7" class="mamaMonth"><br>
+		8月收入<input type="text" id="mamaMonth8" class="mamaMonth"><br>
+		9月收入<input type="text" id="mamaMonth9" class="mamaMonth"><br>
+		10月收入<input type="text" id="mamaMonth10" class="mamaMonth"><br>
+		11月收入<input type="text" id="mamaMonth11" class="mamaMonth"><br>
+		12月收入<input type="text" id="mamaMonth12" class="mamaMonth"><br>
+	</div>
+	<hr>
+	<label>孩子： </label><br>
+	<input type="radio" name="kidSumType" value="month" class="kidRadio">按月录入<br>
+	<input type="radio" name="kidSumType" value="year" class="kidRadio" checked="checked">按年总收入录入<br>
+	<div id="kidYearDiv">
+		年总收入<input type="text" id="kidYear"><br>
+	</div>
+	<div id="kidMonthDiv">
+		1月收入<input type="text" id="kidMonth1" class="kidMonth"><br>
+		2月收入<input type="text" id="kidMonth2" class="kidMonth"><br>
+		3月收入<input type="text" id="kidMonth3" class="kidMonth"><br>
+		4月收入<input type="text" id="kidMonth4" class="kidMonth"><br>
+		5月收入<input type="text" id="kidMonth5" class="kidMonth"><br>
+		6月收入<input type="text" id="kidMonth6" class="kidMonth"><br>
+		7月收入<input type="text" id="kidMonth7" class="kidMonth"><br>
+		8月收入<input type="text" id="kidMonth8" class="kidMonth"><br>
+		9月收入<input type="text" id="kidMonth9" class="kidMonth"><br>
+		10月收入<input type="text" id="kidMonth10" class="kidMonth"><br>
+		11月收入<input type="text" id="kidMonth11" class="kidMonth"><br>
+		12月收入<input type="text" id="kidMonth12" class="kidMonth"><br>
+	</div>
+	<br>
+	<button id="sumBtn">计算档数</button>
+
+
 
 
 	<script src="./jquery-3.3.1.min.js"></script>
 	<script type="text/javascript">
+		$("#babaYearDiv").show();
+		$("#babaMonthDiv").hide();	
+		$("#mamaYearDiv").show();
+		$("#mamaMonthDiv").hide();
+		$("#kidYearDiv").show();
+		$("#kidMonthDiv").hide();
+
+		$(".babaRadio[type='radio']").change(function() {
+			var babaSumType = $(".babaRadio:checked").val();
+			if (babaSumType == "year") {
+				$("#babaYearDiv").show();
+				$("#babaMonthDiv").hide();
+			} else if (babaSumType == "month") {
+				$("#babaYearDiv").hide();
+				$("#babaMonthDiv").show();
+			}
+		});
+
+		$(".mamaRadio[type='radio']").change(function() {
+			var mamaSumType = $(".mamaRadio:checked").val();
+			if (mamaSumType == "year") {
+				$("#mamaYearDiv").show();
+				$("#mamaMonthDiv").hide();
+			} else if (mamaSumType == "month") {
+				$("#mamaYearDiv").hide();
+				$("#mamaMonthDiv").show();
+			}
+		});
+
+		$(".kidRadio[type='radio']").change(function() {
+			var kidSumType = $(".kidRadio:checked").val();
+			if (kidSumType == "year") {
+				$("#kidYearDiv").show();
+				$("#kidMonthDiv").hide();
+			} else if (kidSumType == "month") {
+				$("#kidYearDiv").hide();
+				$("#kidMonthDiv").show();
+			}
+		});
+
+
 		$("#sumBtn").click(function() {
-			var sum = parseFloat($("#mama").val()) + parseFloat($("#baba").val()) + parseInt($("#kid").val());
+			var babaSumType = $(".babaRadio:checked").val();
+			var mamaSumType = $(".mamaRadio:checked").val();			
+			var kidSumType = $(".kidRadio:checked").val();
+
+			var sum = 0;
+			if (babaSumType == "year") {
+				sum = sum + parseFloat($("#babaYear").val());
+			} else if (babaSumType == "month") {
+				var babaMonthList = $(".babaMonth");
+				for(var a=0;a<babaMonthList.length;a++) {
+					sum = sum + parseFloat(babaMonthList[a].value);
+				}
+			}
+
+			if (mamaSumType == "year") {
+				sum = sum + parseFloat($("#mamaYear").val());
+			} else if (mamaSumType == "month") {
+				var mamaMonthList = $(".mamaMonth");
+				for(var b=0;b<mamaMonthList.length;b++) {
+					sum = sum + parseFloat(mamaMonthList[b].value);
+				}
+			}
+
+			if (kidSumType == "year") {
+				sum = sum + parseFloat($("#kidYear").val());
+			} else if (kidSumType == "month") {
+				var kidMonthList = $(".kidMonth");
+				for(var c=0;b<kidMonthList.length;c++) {
+					sum = sum + parseFloat(kidMonthList[c].value);
+				}
+			}
+
 			var result = sum / 3;
 			if (result <= 11400) {
 				alert("租金*0.1");
