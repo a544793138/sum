@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<label>妈妈年总金额： </label><input type="text" id="mama"><br>
+	<label>爸爸年总金额： </label><input type="text" id="baba"><br>
+	<label>孩子年总金额： </label><input type="text" id="kid"><br>
+	<button id="sumBtn">OK</button>
+
+
+	<script typet="text/javascript" src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$("#sumBtn").click(function() {
+			var sum = parseFloat($("#mama").val()) + parseFloat($("#baba").val()) + parseInt($("#kid").val());
+			var result = sum / 3;
+			if (result <= 11400) {
+				alert("租金*0.1");
+			} else if (result > 11400 && result <= 17100) {
+				alert("租金*0.2");
+			} else if (result > 17100 && result <= 20663) {
+				alert("租金*0.3");
+			} else if (result > 20663 && result <= 24795) {
+				alert("租金*0.4");
+			} else if (result > 24795 && result <= 29434) {
+				alert("租金*0.5");
+			} else if (result > 29434 && result <= 35660) {
+				alert("租金*0.6");
+			} else if (result > 35660 && result <= 42792) {
+				alert("租金*0.7");
+			}
+		})
+	</script>
+
+</body>
+</html>
